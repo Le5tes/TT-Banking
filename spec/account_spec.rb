@@ -6,6 +6,10 @@ describe Account do
   	end
   end
   describe '#withdraw' do
-  	# it 
+  	it 'should reduce the account balance' do
+  	  subject.deposit 1000
+  	  subject.withdraw 500
+  	  expect(subject.balance).to eq 500
+  	end
   end
 end
