@@ -1,8 +1,16 @@
 describe Account do
+  let :transaction {double(:transaction, print: '£500')}
+  let :myTransaction {double(:myTransaction, new: transaction)}
+ 
+  subject {Account.new(myTransaction)}
   describe '#deposit' do
   	it 'should increase the account balance' do
   	  subject.deposit 500
   	  expect(subject.balance).to eq 500
+  	end
+  	it 'should create a new transaction' do
+  	  expect(myTransaction).to receive(:new)
+  	  subject.deposit 500
   	end
   end
   describe '#withdraw' do
@@ -14,5 +22,18 @@ describe Account do
   	it 'should not be possible to withdraw money that is not in the account' do
   	  expect{subject.withdraw 500}.to raise_error("Unable to withdraw that amount")
   	end
+  	it 'should create a new transaction' do
+  	  subject.deposit 1000
+  	  expect(myTransaction).to receive(:new)
+  	  subject.withdraw 500
+  	end
+
+  end
+  describe '#print_statement' do
+	it 'should print the previous transactions' do
+	  subject.deposit 1000
+	  expect(transaction).to receive(:print)
+	  subject.print_statement 
+	end
   end
 end
