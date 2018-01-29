@@ -1,5 +1,5 @@
 describe Account do
-  let :transaction {double(:transaction, print: '£500')}
+  let :transaction {double(:transaction, to_s: '£500')}
   let :myTransaction {double(:myTransaction, new: transaction)}
  
   subject {Account.new(myTransaction)}
@@ -32,7 +32,7 @@ describe Account do
   describe '#print_statement' do
 	it 'should print the previous transactions' do
 	  subject.deposit 1000
-	  expect(transaction).to receive(:print)
+	  expect(transaction).to receive(:to_s)
 	  subject.print_statement 
 	end
   end

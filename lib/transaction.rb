@@ -1,6 +1,13 @@
 class Transaction
+  def initialize transaction
+  	@balance = transaction[:balance_now]
+  	@withdraw = transaction[:withdraw]
+  	@deposit = transaction[:deposit]
 
-  def print
+  end
+
+  def to_s
+  	"#{@balance}"
 
   end
 end

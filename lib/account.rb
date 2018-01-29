@@ -11,20 +11,20 @@ class Account
 
   def deposit amount
   	@balance += amount
-  	@transactions << transaction_class.new
+  	@transactions << transaction_class.new(deposit: amount, balance_now: @balance)
   end
 
   def withdraw amount
   	raise "Unable to withdraw that amount" if amount > balance
   	@balance -= amount
-  	@transactions << transaction_class.new
+  	@transactions << transaction_class.new(withdraw: amount, balance_now: @balance)
   end
 
   def print_statement
   	@transactions.each do |transaction|
-  		transaction.print
+  	puts transaction.to_s
   	end
-  	puts balance
+  	
   end
 
   private
