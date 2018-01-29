@@ -1,6 +1,7 @@
 require 'date'
 class Transaction
   attr_reader :date
+  
   def initialize transaction
   	@balance = transaction[:balance_now]
   	@withdraw = transaction[:withdraw]
@@ -14,10 +15,13 @@ class Transaction
   end
 
   private
+
   def money_format value
   	format('%.2f', value) if value
   end
+
   def date_format date
   	date.strftime("%d/%m/%Y")
   end
+
 end
