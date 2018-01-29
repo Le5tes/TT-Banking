@@ -1,11 +1,16 @@
 describe Transaction do 
-  subject { Transaction.new(deposit: 500, balance_now: 1000 ) }
+  let :date { double(:date, strftime: '12pm')}
+  let :my_date_class { double(:my_date_class,now: date) }
+  subject { Transaction.new(deposit: 500, balance_now: 1000, date_class: my_date_class) }
   describe '#print' do
-    it 'should print the balance after the transaction' do
+    it 'should include the balance after the transaction' do
       expect(subject.to_s).to include '1000'
     end
-    it 'should print to amount withdrawn or deposited' do
+    it 'should include the amount withdrawn or deposited' do
       expect(subject.to_s).to include '500'
+    end
+    it 'should include the date' do
+      expect(subject.to_s).to include '12pm'
     end
   end
 	
