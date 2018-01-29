@@ -30,6 +30,9 @@ describe Account do
 
   end
   describe '#print_statement' do
+  	it 'should print a header' do
+  	  expect{subject.print_statement}.to output("date || credit || debit || balance\n").to_stdout
+  	end
 	it 'should print the previous transactions' do
 	  subject.deposit 1000
 	  expect(transaction).to receive(:to_s)

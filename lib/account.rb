@@ -21,6 +21,7 @@ class Account
   end
 
   def print_statement
+  	puts "date || credit || debit || balance"
   	@transactions.each do |transaction|
   	puts transaction.to_s
   	end
