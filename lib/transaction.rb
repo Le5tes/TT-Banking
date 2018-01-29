@@ -1,7 +1,7 @@
 require 'date'
-class Transaction
+class TransactionRecord
   attr_reader :date
-  
+
   def initialize transaction
   	@balance = transaction[:balance_now]
   	@withdraw = transaction[:withdraw]

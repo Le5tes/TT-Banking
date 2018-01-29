@@ -1,8 +1,8 @@
-describe Transaction do 
+describe TransactionRecord do 
   let :date { double(:date, strftime: '12pm')}
   let :my_date_class { double(:my_date_class,now: date) }
 
-  subject { Transaction.new(deposit: 500, balance_now: 1000, date_class: my_date_class) }
+  subject { TransactionRecord.new(deposit: 500, balance_now: 1000, date_class: my_date_class) }
 
   describe '#print' do
 
@@ -17,7 +17,7 @@ describe Transaction do
     it 'should include the date' do
       expect(subject.to_s).to include '12pm'
     end
-    
+
   end
 	
 end
