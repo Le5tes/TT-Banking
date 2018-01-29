@@ -1,0 +1,15 @@
+A User should be able to create a bank account
+
+A User should be able to make withdrawals from their account
+
+A User should be able to make deposits into their account
+
+A User should be able to print their statement
+
+A statement should keep track of the bank balance
+
+A statement should keep track of the deposits and withrawals
+
+A statement should keep track of the time of the above
+
+A printed statement should be sorted in descending order by time (most recent first)
