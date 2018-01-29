@@ -4,6 +4,9 @@ describe Transaction do
     it 'should print the balance after the transaction' do
       expect(subject.to_s).to include '1000'
     end
+    it 'should print to amount withdrawn or deposited' do
+      expect(subject.to_s).to include '500'
+    end
   end
 	
 end

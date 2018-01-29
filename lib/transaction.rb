@@ -7,7 +7,7 @@ class Transaction
   end
 
   def to_s
-  	"#{@balance}"
+  	"#{@deposit} || #{@withdraw} || #{@balance}"
 
   end
 end
