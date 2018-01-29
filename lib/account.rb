@@ -1,8 +1,7 @@
 require 'transaction'
 class Account
   attr_reader :balance
-  # reading the account's balance without having to view a statement is meaningful and eases testing
-
+  
   def initialize transaction_class = Transaction
   	@balance = 0.0
   	@transaction_class = transaction_class
@@ -22,7 +21,7 @@ class Account
 
   def print_statement
   	puts "date || credit || debit || balance"
-  	@transactions.sort {|a,b| b.to_s <=> a.to_s } 
+  	@transactions.sort { |a,b| b.date <=> a.date } 
   	.each do |transaction|
   	  puts transaction.to_s
   	end
