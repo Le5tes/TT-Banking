@@ -1,14 +1,14 @@
 describe 'Banking features' do
-	
+
   it 'should be possible to make a bank account' do
   	expect { Account.new }.not_to raise_error
   end
 
   
-  let :expected_output { "date || credit || debit || balance
-14/01/2012 ||  || 500.00 || 2500.00
-13/01/2012 || 2000.00 ||  || 3000.00
-10/01/2012 || 1000.00 ||  || 1000.00\n" }
+  let :expected_output { "date || credit || debit || balance\n" +
+						 "14/01/2012 ||  || 500.00 || 2500.00\n" +
+						 "13/01/2012 || 2000.00 ||  || 3000.00" +
+						 "10/01/2012 || 1000.00 ||  || 1000.00\n" }
  
 
   it 'should be possible to print a statement of the transactions and balance' do
