@@ -11,5 +11,8 @@ describe Account do
   	  subject.withdraw 500
   	  expect(subject.balance).to eq 500
   	end
+  	it 'should not be possible to withdraw money that is not in the account' do
+  	  expect{subject.withdraw 500}.to raise_error("Unable to withdraw that amount")
+  	end
   end
 end

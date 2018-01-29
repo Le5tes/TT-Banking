@@ -11,6 +11,7 @@ class Account
   end
 
   def withdraw amount
+  	raise "Unable to withdraw that amount" if amount > balance
   	@balance -= amount
   end
 
