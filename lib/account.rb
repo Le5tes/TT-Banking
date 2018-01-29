@@ -22,8 +22,9 @@ class Account
 
   def print_statement
   	puts "date || credit || debit || balance"
-  	@transactions.each do |transaction|
-  	puts transaction.to_s
+  	@transactions.sort {|a,b| b.to_s <=> a.to_s } 
+  	.each do |transaction|
+  	  puts transaction.to_s
   	end
   	
   end
